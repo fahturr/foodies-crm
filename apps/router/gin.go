@@ -1,23 +1,27 @@
 package router
 
 import (
+	"foodies-crm/apps/commons/middlewares"
 	"foodies-crm/pkg/database"
 	"github.com/gin-gonic/gin"
 )
 
 type Gin struct {
-	port   string
-	router *gin.Engine
-	db     *database.Database
+	port       string
+	router     *gin.Engine
+	middleware *middlewares.GinMiddleware
+	db         *database.Database
 }
 
 func NewGinRouter(port string, db *database.Database) *Gin {
 	router := gin.Default()
+	middleware := middlewares.NewGinMiddleware()
 
 	return &Gin{
-		port:   port,
-		router: router,
-		db:     db,
+		port:       port,
+		router:     router,
+		middleware: middleware,
+		db:         db,
 	}
 }
 
