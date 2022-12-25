@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	err := config.LoadConfig("./cmd.env")
+	err := config.LoadConfig("./cmd/.env")
 	if err != nil {
 		panic(err)
 	}
