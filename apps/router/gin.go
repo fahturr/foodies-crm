@@ -21,12 +21,12 @@ func NewGinRouter(port string, db *database.Database) *Gin {
 	}
 }
 
-func (g *Gin) BuildRoutes() {
-	g.router.Use(CORS)
+func (r *Gin) BuildRoutes() {
+	r.router.Use(CORS)
 }
 
-func (g *Gin) Run() error {
-	err := g.router.Run(g.port)
+func (r *Gin) Run() error {
+	err := r.router.Run(r.port)
 
 	return err
 }
