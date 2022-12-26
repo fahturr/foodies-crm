@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"foodies-crm/apps/router"
 	"foodies-crm/pkg/database"
-	"log"
 )
 
 const (
@@ -28,8 +27,8 @@ func (r *RouterFactory) Create(typeRouter string, port string) (Router, error) {
 	switch typeRouter {
 	case ROUTER_GIN:
 		return router.NewGinRouter(port, r.db), nil
+
 	default:
-		log.Println()
 		return nil, fmt.Errorf("router with type %s not found", typeRouter)
 	}
 }
